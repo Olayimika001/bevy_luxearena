@@ -135,7 +135,7 @@
 import { ref, computed } from 'vue'
 import { useRouter } from 'vue-router'
 import { useStore } from '../composables/useStore'
-import logo from "../assets/logo.png";
+import logo from "../assets/pictures/Logo.png";
 
 
 const router = useRouter()
