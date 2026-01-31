@@ -3,7 +3,7 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
       <div class="grid md:grid-cols-4 gap-8 mb-8">
         <div>
-          <img src="/public/logo.png" alt="Store Logo" class="h-28 w-25 z-10" />
+          <img src="/Logo.png" alt="Store Logo" class="h-28 w-25 z-10" />
           <p class="text-sm text-gray-300">Crafted with care, designed for elegance.</p>
         </div>
         <div>
