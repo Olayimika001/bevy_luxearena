@@ -14,7 +14,7 @@
       <div class="py-4 flex items-center justify-between gap-6">
         <!-- Logo -->
         <router-link to="/" class="flex items-center flex-shrink-0">
-          <img src="/logo.png" alt="Store Logo" class="h-28 w-25 z-10" />
+          <img :src="logo" alt="Store Logo" class="h-28 w-25 z-10" />
         </router-link>
 
         <!-- Search Bar (Hidden on Mobile) -->
@@ -135,6 +135,8 @@
 import { ref, computed } from 'vue'
 import { useRouter } from 'vue-router'
 import { useStore } from '../composables/useStore'
+import logo from "../assets/logo.png";
+
 
 const router = useRouter()
 const mobileMenuOpen = ref(false)
