@@ -27,8 +27,6 @@
   "engines": {
   "node": "20.x",
   "pnpm": "10.x"
-},
-
- "packageManager": "pnpm@7.5.1"
+}
 
 }
