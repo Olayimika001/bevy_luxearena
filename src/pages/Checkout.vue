@@ -2,14 +2,14 @@
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
     <h1 class="section-title mb-8">Checkout</h1>
 
-    <div v-if="cart.length > 0" class="grid lg:grid-cols-3 gap-8">
+    <div v-if="cart.length > 0" class="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8">
       <!-- Checkout Form -->
-      <form @submit.prevent="handleSubmit" class="lg:col-span-2 space-y-8">
+      <form @submit.prevent="handleSubmit" class="lg:col-span-2 space-y-6 sm:space-y-8">
         <!-- Shipping Information -->
-        <section class="bg-white rounded-lg p-6 border border-muted">
-          <h2 class="font-serif font-bold text-xl mb-6">Shipping Information</h2>
+        <section class="bg-white rounded-lg p-4 sm:p-6 border border-muted">
+          <h2 class="font-serif font-bold text-lg sm:text-xl mb-6">Shipping Information</h2>
           
-          <div class="grid md:grid-cols-2 gap-4 mb-4">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
             <div>
               <label class="block text-sm font-bold mb-2">First Name *</label>
               <input 
@@ -60,7 +60,7 @@
             />
           </div>
 
-          <div class="grid md:grid-cols-3 gap-4">
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
             <div>
               <label class="block text-sm font-bold mb-2">City *</label>
               <input 
@@ -92,39 +92,39 @@
         </section>
 
         <!-- Shipping Method -->
-        <section class="bg-white rounded-lg p-6 border border-muted">
-          <h2 class="font-serif font-bold text-xl mb-6">Shipping Method</h2>
+        <section class="bg-white rounded-lg p-4 sm:p-6 border border-muted">
+          <h2 class="font-serif font-bold text-lg sm:text-xl mb-6">Shipping Method</h2>
           
           <div class="space-y-3">
             <label class="flex items-center p-4 border border-muted rounded cursor-pointer hover:bg-muted transition" :class="form.shipping === 'standard' && 'bg-blue-50 border-blue-300'">
               <input v-model="form.shipping" type="radio" value="standard" class="mr-3" />
               <div class="flex-grow">
                 <p class="font-bold">Standard Shipping (5-7 business days)</p>
-                <p class="text-sm text-gray-600">$9.99</p>
+                <p class="text-sm text-gray-600">₦9.99</p>
               </div>
             </label>
             <label class="flex items-center p-4 border border-muted rounded cursor-pointer hover:bg-muted transition" :class="form.shipping === 'express' && 'bg-blue-50 border-blue-300'">
               <input v-model="form.shipping" type="radio" value="express" class="mr-3" />
               <div class="flex-grow">
                 <p class="font-bold">Express Shipping (2-3 business days)</p>
-                <p class="text-sm text-gray-600">$24.99</p>
+                <p class="text-sm text-gray-600">₦24.99</p>
               </div>
             </label>
             <label class="flex items-center p-4 border border-muted rounded cursor-pointer hover:bg-muted transition" :class="form.shipping === 'overnight' && 'bg-blue-50 border-blue-300'">
               <input v-model="form.shipping" type="radio" value="overnight" class="mr-3" />
               <div class="flex-grow">
                 <p class="font-bold">Overnight Shipping</p>
-                <p class="text-sm text-gray-600">$49.99</p>
+                <p class="text-sm text-gray-600">₦49.99</p>
               </div>
             </label>
           </div>
         </section>
 
         <!-- Payment Information -->
-        <section class="bg-white rounded-lg p-6 border border-muted">
-          <h2 class="font-serif font-bold text-xl mb-6">Payment Method</h2>
+        <section class="bg-white rounded-lg p-4 sm:p-6 border border-muted">
+          <h2 class="font-serif font-bold text-lg sm:text-xl mb-6">Payment Method</h2>
           
-          <div class="grid md:grid-cols-2 gap-4 mb-6">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
             <label class="flex items-center p-4 border border-muted rounded cursor-pointer hover:bg-muted transition" :class="form.paymentMethod === 'card' && 'bg-blue-50 border-blue-300'">
               <input v-model="form.paymentMethod" type="radio" value="card" class="mr-3" />
               <span class="font-bold text-sm">Credit/Debit Card</span>
@@ -160,7 +160,7 @@
               />
             </div>
 
-            <div class="grid md:grid-cols-2 gap-4">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
                 <label class="block text-sm font-bold mb-2">Expiry Date (MM/YY) *</label>
                 <input 
@@ -214,9 +214,9 @@
         <button 
           type="submit" 
           :disabled="!form.termsAccepted"
-          :class="['btn-primary w-full', !form.termsAccepted && 'opacity-50 cursor-not-allowed']"
+          :class="['btn-primary w-full text-sm sm:text-base py-2 sm:py-3', !form.termsAccepted && 'opacity-50 cursor-not-allowed']"
         >
-          Complete Purchase - ${{ finalTotal.toFixed(2) }}
+          Complete Purchase - ₦{{ finalTotal.toFixed(2) }}
         </button>
 
         <p class="text-xs text-center text-gray-600">
@@ -226,19 +226,18 @@
 
       <!-- Order Summary -->
       <div class="lg:col-span-1">
-        <div class="bg-muted rounded-lg p-6 sticky top-4">
+        <div class="bg-muted rounded-lg p-4 sm:p-6 sticky top-4">
           <h3 class="font-serif font-bold text-lg mb-6">Order Summary</h3>
 
           <!-- Cart Items Preview -->
-          <div class="space-y-3 mb-6 pb-6 border-b border-gray-300 max-h-64 overflow-y-auto">
+          <div class="space-y-3 mb-6 pb-6 border-b border-gray-300 max-h-48 sm:max-h-64 overflow-y-auto">
             <div v-for="item in cart" :key="item.id" class="flex justify-between text-sm">
               <div>
                 <p class="font-bold">{{ item.name }}</p>
                 <p class="text-xs text-gray-600">Qty: {{ item.quantity }}</p>
               </div>
               <div class="text-right">
-                <p class="font-bold">${{ (item.price * (1 - (item.discount || 0) / 100) * item.quantity).toFixed(2) }}</p>
-                <p v-if="item.discount > 0" class="text-xs text-green-600">-{{ item.discount }}%</p>
+                <p class="font-bold">₦{{ (item.price * item.quantity).toFixed(2) }}</p>
               </div>
             </div>
           </div>
@@ -247,21 +246,21 @@
           <div class="space-y-4 mb-6 pb-6 border-b border-gray-300">
             <div class="flex justify-between">
               <span class="text-gray-600">Subtotal</span>
-              <span class="font-bold">${{ cartTotal.toFixed(2) }}</span>
+              <span class="font-bold">₦{{ cartTotal.toFixed(2) }}</span>
             </div>
             <div class="flex justify-between">
               <span class="text-gray-600">Shipping</span>
-              <span class="font-bold">{{ shippingCost > 0 ? '$' + shippingCost.toFixed(2) : 'FREE' }}</span>
+              <span class="font-bold">{{ shippingCost > 0 ? '₦' + shippingCost.toFixed(2) : 'FREE' }}</span>
             </div>
             <div class="flex justify-between">
               <span class="text-gray-600">Tax</span>
-              <span class="font-bold">${{ tax.toFixed(2) }}</span>
+              <span class="font-bold">₦{{ tax.toFixed(2) }}</span>
             </div>
           </div>
 
           <div class="flex justify-between mb-6">
             <span class="font-serif font-bold text-lg">Total</span>
-            <span class="font-serif font-bold text-2xl">${{ finalTotal.toFixed(2) }}</span>
+            <span class="font-serif font-bold text-2xl">₦{{ finalTotal.toFixed(2) }}</span>
           </div>
 
           <!-- Security Info -->
@@ -329,7 +328,7 @@ const shippingCost = computed(() => {
 })
 
 const tax = computed(() => {
-  return cartTotal.value * 0.08
+  return (cartTotal.value + shippingCost.value) * 0.08
 })
 
 const finalTotal = computed(() => {
@@ -362,7 +361,7 @@ const handleSubmit = () => {
   // Simulate order processing
   const orderNumber = 'ORD-' + Math.random().toString(36).substring(2, 9).toUpperCase()
   
-  alert(`Order placed successfully!\n\nOrder Number: ${orderNumber}\nOrder Total: $${finalTotal.value.toFixed(2)}\n\nThank you for your purchase!\n\nA confirmation email has been sent to ${form.value.email}`)
+  alert(`Order placed successfully!\n\nOrder Number: ${orderNumber}\nOrder Total: ₦${finalTotal.value.toFixed(2)}\n\nThank you for your purchase!\n\nA confirmation email has been sent to ${form.value.email}`)
   
   clearCart()
   router.push('/')

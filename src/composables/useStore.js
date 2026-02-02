@@ -35,7 +35,7 @@ const products = ref([
     inStock: true,
     rating: 4.6,
     reviews: 32,
-    discount: 15
+    discount: 0
   },
   {
     id: 3,
@@ -65,7 +65,7 @@ const products = ref([
     inStock: true,
     rating: 4.7,
     reviews: 19,
-    discount: 10
+    discount: 0
   },
   {
     id: 5,
@@ -77,10 +77,10 @@ const products = ref([
     color: "Gold",
     material: "Metallic leather",
     dimensions: "8 x 5 x 2 inches",
-    inStock: false,
+    inStock: true,
     rating: 4.5,
     reviews: 15,
-    discount: 20
+    discount: 0
   },
   {
     id: 6,
@@ -125,7 +125,7 @@ const products = ref([
     inStock: true,
     rating: 4.7,
     reviews: 28,
-    discount: 5
+    discount: 0
   },
   {
     id: 9,
@@ -170,9 +170,7 @@ const updateQuantity = (productId, quantity) => {
 
 const cartTotal = computed(() => {
   return cart.value.reduce((sum, item) => {
-    const discount = item.price * (item.discount || 0) / 100
-    const discountedPrice = item.price - discount
-    return sum + (discountedPrice * item.quantity)
+    return sum + (item.price * item.quantity)
   }, 0)
 })
 

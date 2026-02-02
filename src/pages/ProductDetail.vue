@@ -10,25 +10,22 @@
     </nav>
 
     <!-- Product Details -->
-    <div class="grid md:grid-cols-2 gap-12 mb-16">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12 mb-16">
       <!-- Image Gallery -->
       <div class="bg-muted rounded-lg overflow-hidden aspect-square">
         <img :src="product.image" :alt="product.name" class="w-full h-full object-cover" />
       </div>
 
       <!-- Details -->
-      <div>
+      <div class="flex flex-col">
         <p class="text-xs uppercase tracking-widest text-accent mb-4">{{ product.category }}</p>
-        <h1 class="text-4xl font-serif font-bold mb-4">{{ product.name }}</h1>
+        <h1 class="text-3xl sm:text-4xl font-serif font-bold mb-4">{{ product.name }}</h1>
         
         <!-- Price and Stock -->
         <div class="flex items-center gap-4 mb-6">
           <div>
-            <span v-if="product.discount > 0" class="text-3xl font-serif font-bold">#{{ (product.price * (1 - product.discount / 100)).toFixed(2) }}</span>
-            <span v-else class="text-3xl font-serif font-bold">#{{ product.price }}</span>
-            <span v-if="product.discount > 0" class="text-xl line-through text-gray-500 ml-2">#{{ product.price }}</span>
+            <span class="text-3xl font-serif font-bold">₦{{ product.price }}</span>
           </div>
-          <span v-if="product.discount > 0" class="bg-red-500 text-white px-3 py-1 rounded text-sm font-bold">Save {{ product.discount }}%</span>
         </div>
 
         <!-- Rating -->
@@ -37,8 +34,7 @@
             <span v-for="i in 5" :key="i" :class="i <= Math.round(product.rating) ? 'text-accent' : 'text-gray-300'">★</span>
           </div>
           <span class="text-sm text-gray-600">({{ product.reviews }} reviews)</span>
-          <span v-if="product.inStock" class="text-sm text-green-600 font-bold">In Stock</span>
-          <span v-else class="text-sm text-red-600 font-bold">Out of Stock</span>
+          <span class="text-sm text-green-600 font-bold">In Stock</span>
         </div>
 
         <p class="text-gray-600 mb-8 leading-relaxed">{{ product.description }}</p>
@@ -60,18 +56,17 @@
         </div>
 
         <!-- Quantity & Add to Cart -->
-        <div class="flex gap-4 mb-8">
-          <div class="flex items-center border border-muted rounded">
+        <div class="flex flex-col sm:flex-row gap-4 mb-8">
+          <div class="flex items-center border border-muted rounded w-full sm:w-auto">
             <button @click="quantity > 1 ? quantity-- : null" class="px-4 py-2 hover:bg-muted transition">−</button>
             <input type="number" v-model.number="quantity" min="1" class="w-12 text-center border-0 focus:outline-none focus:ring-0" />
             <button @click="quantity++" class="px-4 py-2 hover:bg-muted transition">+</button>
           </div>
           <button 
             @click="handleAddToCart" 
-            :disabled="!product.inStock"
-            :class="['btn-primary flex-grow', !product.inStock && 'opacity-50 cursor-not-allowed']"
+            class="btn-primary flex-grow sm:flex-grow-0"
           >
-            {{ product.inStock ? 'Add to Cart' : 'Out of Stock' }}
+            Add to Cart
           </button>
           <button 
             @click="toggleWishlist"
@@ -177,15 +172,12 @@
     <!-- Related Products -->
     <section class="mt-20 pt-12 border-t border-muted">
       <h3 class="section-title mb-8">You May Also Like</h3>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
         <article v-for="item in relatedProducts" :key="item.id" class="product-card group">
           <div class="relative overflow-hidden bg-muted aspect-square rounded-lg">
             <router-link :to="`/product/${item.id}`" class="block w-full h-full">
               <img :src="item.image" :alt="item.name" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
             </router-link>
-            <div v-if="item.discount > 0" class="absolute top-0 right-0 bg-accent text-white px-2 py-1 text-xs font-bold">
-              -{{ item.discount }}%
-            </div>
           </div>
           <div class="p-4">
             <p class="text-xs uppercase tracking-widest text-accent mb-2">{{ item.category }}</p>
@@ -193,10 +185,9 @@
               <h4 class="text-base font-serif font-bold mb-2 hover:text-accent transition">{{ item.name }}</h4>
             </router-link>
             <div class="flex justify-between items-center">
-              <p class="font-bold">${{ (item.price * (1 - item.discount / 100)).toFixed(2) }}</p>
+              <p class="font-bold">₦{{ item.price }}</p>
               <button 
                 @click="addToCart(item)" 
-                :disabled="!item.inStock"
                 class="bg-accent text-white p-2 rounded hover:bg-opacity-90 transition"
               >
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -246,7 +237,7 @@ const displayedReviews = computed(() => {
 })
 
 const handleAddToCart = () => {
-  if (product.value && product.value.inStock) {
+  if (product.value) {
     for (let i = 0; i < quantity.value; i++) {
       storeAddToCart(product.value)
     }
