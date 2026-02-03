@@ -1,5 +1,19 @@
 import { ref, computed } from 'vue'
 
+// Video assets (use Vite's URL handling)
+const vid1 = new URL('../assets/Videos/WhatsApp Video 2026-02-01 at 11.28.40 AM.mp4', import.meta.url).href
+const vid2 = new URL('../assets/Videos/WhatsApp Video 2026-02-01 at 11.28.41 AM.mp4', import.meta.url).href
+const vid3 = new URL('../assets/Videos/WhatsApp Video 2026-02-01 at 11.28.42 AM.mp4', import.meta.url).href
+// Lowercase folder videos
+const vid4 = new URL('../assets/videos/WhatsApp Video 2026-02-01 at 11.28.43 AM.mp4', import.meta.url).href
+const vid5 = new URL('../assets/videos/WhatsApp Video 2026-02-01 at 11.28.44 AM.mp4', import.meta.url).href
+const vid6 = new URL('../assets/videos/WhatsApp Video 2026-02-01 at 11.28.45 AM.mp4', import.meta.url).href
+const vid7 = new URL('../assets/videos/WhatsApp Video 2026-02-01 at 11.28.46 AM.mp4', import.meta.url).href
+const vid8 = new URL('../assets/videos/WhatsApp Video 2026-02-01 at 11.28.47 AM.mp4', import.meta.url).href
+const vid9 = new URL('../assets/videos/WhatsApp Video 2026-02-01 at 11.28.48 AM.mp4', import.meta.url).href
+const vid10 = new URL('../assets/videos/WhatsApp Video 2026-02-01 at 11.28.49 AM.mp4', import.meta.url).href
+const logoPoster = new URL('../assets/pictures/Logo.png', import.meta.url).href
+
 const cart = ref([])
 const searchQuery = ref('')
 const selectedCategory = ref('All')
@@ -140,6 +154,152 @@ const products = ref([
     inStock: true,
     rating: 4.6,
     reviews: 18,
+    discount: 0
+  },
+  // Video products added from src/assets/Videos
+  {
+    id: 10,
+    name: "Quality Bags",
+    price: 15000,
+    // image: "/leather handbag.jpeg",
+    video: vid1,
+    category: "Videos",
+    description: "Short video clip — downloadable media for your collection.",
+    color: "N/A",
+    material: "Digital",
+    dimensions: "HD",
+    inStock: true,
+    rating: 4.5,
+    reviews: 3,
+    discount: 0
+  },
+  {
+    id: 11,
+    name: "Luxury Bags",
+    price: 17000,
+    // image: "/crossbody handbag.jpeg",
+    video: vid2,
+    category: "Videos",
+    description: "Short video clip — downloadable media for your collection.",
+    color: "N/A",
+    material: "Digital",
+    dimensions: "HD",
+    inStock: true,
+    rating: 4.2,
+    reviews: 2,
+    discount: 0
+  },
+  {
+    id: 12,
+    name: "Box quality bags",
+    price: 15000,
+    // image: "/quality fashion handbag.jpeg",
+    video: vid3,
+    category: "Videos",
+    description: "Short video clip — downloadable media for your collection.",
+    color: "N/A",
+    material: "Digital",
+    dimensions: "HD",
+    inStock: true,
+    rating: 4.7,
+    reviews: 5,
+    discount: 0
+  },
+  
+  {
+    id: 14,
+    name: "Quality Leather Bag",
+    price: 14000,
+    // image: "/spacious leather bag.jpeg",
+    video: vid5,
+    category: "Videos",
+    description: "Short video clip — extra footage.",
+    color: "N/A",
+    material: "Digital",
+    dimensions: "HD",
+    inStock: true,
+    rating: 4.1,
+    reviews: 2,
+    discount: 0
+  },
+  {
+    id: 15,
+    name: "Quality Bag",
+    price: 15000,
+    // image: "/Glossy handbag.jpeg",
+    video: vid6,
+    category: "Videos",
+    description: "Short video clip — extra footage.",
+    color: "N/A",
+    material: "Digital",
+    dimensions: "HD",
+    inStock: true,
+    rating: 4.0,
+    reviews: 0,
+    discount: 0
+  },
+  {
+    id: 16,
+    name: "Quality Leather Bag",
+    price: 22000,
+    // image: "/FNDEI handbag.jpeg",
+    video: vid7,
+    category: "Videos",
+    description: "Short video clip — extra footage.",
+    color: "N/A",
+    material: "Digital",
+    dimensions: "HD",
+    inStock: true,
+    rating: 4.4,
+    reviews: 1,
+    discount: 0
+  },
+  {
+    id: 17,
+    name: "Leather Hand Bag",
+    price: 7000,
+    // image: "/Garavani Vlogo signature clutch bag.jpeg",
+    video: vid8,
+    category: "Videos",
+    description: "Short video clip — extra footage.",
+    color: "N/A",
+    material: "Digital",
+    dimensions: "HD",
+    inStock: true,
+    rating: 4.6,
+    reviews: 2,
+    discount: 0
+  },
+  {
+    id: 18,
+    name: "Quality Handbag",
+    price: 11000,
+    // image: "/Beige and tan handbag.jpeg",
+    video: vid9,
+    category: "Videos",
+    description: "Short video clip — extra footage.",
+    color: "N/A",
+    material: "Digital",
+    dimensions: "HD",
+    inStock: true,
+    rating: 4.2,
+    reviews: 1,
+    discount: 0
+  },
+  {
+    id: 19,
+    name: "Spacious Handbag",
+    price: 10000,
+    // image: "/leather handbag.jpeg",
+    video: vid10,
+    category: "Videos",
+    description: "Short video clip — extra footage.",
+    color: "N/A",
+    material: "Digital",
+    dimensions: "HD",
+    inStock: true,
+    rating: 4.5,
+    reviews: 3,
     discount: 0
   },
 ])

@@ -13,7 +13,12 @@
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12 mb-16">
       <!-- Image Gallery -->
       <div class="bg-muted rounded-lg overflow-hidden aspect-square">
-        <img :src="product.image" :alt="product.name" class="w-full h-full object-cover" />
+        <template v-if="product.video">
+          <video :src="product.video" autoplay muted playsinline controls :poster="product.image" class="w-full h-full object-cover"></video>
+        </template>
+        <template v-else>
+          <img :src="product.image" :alt="product.name" class="w-full h-full object-cover" />
+        </template>
       </div>
 
       <!-- Details -->
@@ -174,9 +179,14 @@
       <h3 class="section-title mb-8">You May Also Like</h3>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
         <article v-for="item in relatedProducts" :key="item.id" class="product-card group">
-          <div class="relative overflow-hidden bg-muted aspect-square rounded-lg">
+            <div class="relative overflow-hidden bg-muted aspect-square rounded-lg">
             <router-link :to="`/product/${item.id}`" class="block w-full h-full">
-              <img :src="item.image" :alt="item.name" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+              <template v-if="item.video">
+                <video :src="item.video" controls class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+              </template>
+              <template v-else>
+                <img :src="item.image" :alt="item.name" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+              </template>
             </router-link>
           </div>
           <div class="p-4">

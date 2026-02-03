@@ -39,7 +39,12 @@
             <!-- Product Image with Badge -->
             <div class="relative overflow-hidden bg-muted aspect-square rounded-lg">
               <router-link :to="`/product/${product.id}`" class="block w-full h-full">
-                <img :src="product.image" :alt="product.name" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                <template v-if="product.video">
+                  <video :src="product.video" autoplay muted playsinline loop :poster="product.image" controls class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"></video>
+                </template>
+                <template v-else>
+                  <img :src="product.image" :alt="product.name" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                </template>
               </router-link>
             </div>
             

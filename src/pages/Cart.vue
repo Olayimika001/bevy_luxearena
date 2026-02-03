@@ -16,7 +16,12 @@
           <article v-for="item in cart" :key="item.id" class="bg-white rounded-lg p-4 sm:p-6 flex flex-col sm:flex-row gap-4 sm:gap-6 border border-muted hover:shadow-lg transition">
             <!-- Product Image -->
             <router-link :to="`/product/${item.id}`" class="flex-shrink-0 w-20 h-20 sm:w-24 sm:h-24 bg-muted rounded overflow-hidden">
-              <img :src="item.image" :alt="item.name" class="w-full h-full object-cover hover:scale-110 transition-transform" />
+              <template v-if="item.video">
+                <video :src="item.video" autoplay muted playsinline loop class="w-full h-full object-cover"></video>
+              </template>
+              <template v-else>
+                <img :src="item.image" :alt="item.name" class="w-full h-full object-cover hover:scale-110 transition-transform" />
+              </template>
             </router-link>
 
             <!-- Product Info -->
