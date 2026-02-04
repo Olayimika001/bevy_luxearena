@@ -12,7 +12,23 @@ const vid8 = '/videos/WhatsApp Video 2026-02-01 at 11.28.47 AM.mp4'
 const vid9 = '/videos/WhatsApp Video 2026-02-01 at 11.28.48 AM.mp4'
 const vid10 = '/videos/WhatsApp Video 2026-02-01 at 11.28.49 AM.mp4'
 
-const cart = ref([])
+// Initialize cart from localStorage
+const loadCartFromStorage = () => {
+  if (typeof window !== 'undefined') {
+    const saved = localStorage.getItem('cart')
+    return saved ? JSON.parse(saved) : []
+  }
+  return []
+}
+
+// Save cart to localStorage
+const saveCartToStorage = (cartItems) => {
+  if (typeof window !== 'undefined') {
+    localStorage.setItem('cart', JSON.stringify(cartItems))
+  }
+}
+
+const cart = ref(loadCartFromStorage())
 const searchQuery = ref('')
 const selectedCategory = ref('All')
 const priceRange = ref([0, 20000])
@@ -309,10 +325,12 @@ const addToCart = (product) => {
   } else {
     cart.value.push({ ...product, quantity: 1 })
   }
+  saveCartToStorage(cart.value)
 }
 
 const removeFromCart = (productId) => {
   cart.value = cart.value.filter(item => item.id !== productId)
+  saveCartToStorage(cart.value)
 }
 
 const updateQuantity = (productId, quantity) => {
@@ -322,6 +340,7 @@ const updateQuantity = (productId, quantity) => {
       removeFromCart(productId)
     } else {
       item.quantity = quantity
+      saveCartToStorage(cart.value)
     }
   }
 }
@@ -384,6 +403,7 @@ const cartCount = computed(() => {
 
 const clearCart = () => {
   cart.value = []
+  saveCartToStorage(cart.value)
 }
 
 const setSearchQuery = (query) => {
