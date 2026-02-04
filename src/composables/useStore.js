@@ -1,18 +1,16 @@
 import { ref, computed } from 'vue'
 
-// Video assets (use Vite's URL handling)
-const vid1 = new URL('../assets/Videos/WhatsApp Video 2026-02-01 at 11.28.40 AM.mp4', import.meta.url).href
-const vid2 = new URL('../assets/Videos/WhatsApp Video 2026-02-01 at 11.28.41 AM.mp4', import.meta.url).href
-const vid3 = new URL('../assets/Videos/WhatsApp Video 2026-02-01 at 11.28.42 AM.mp4', import.meta.url).href
-// Lowercase folder videos
-const vid4 = new URL('../assets/videos/WhatsApp Video 2026-02-01 at 11.28.43 AM.mp4', import.meta.url).href
-const vid5 = new URL('../assets/videos/WhatsApp Video 2026-02-01 at 11.28.44 AM.mp4', import.meta.url).href
-const vid6 = new URL('../assets/videos/WhatsApp Video 2026-02-01 at 11.28.45 AM.mp4', import.meta.url).href
-const vid7 = new URL('../assets/videos/WhatsApp Video 2026-02-01 at 11.28.46 AM.mp4', import.meta.url).href
-const vid8 = new URL('../assets/videos/WhatsApp Video 2026-02-01 at 11.28.47 AM.mp4', import.meta.url).href
-const vid9 = new URL('../assets/videos/WhatsApp Video 2026-02-01 at 11.28.48 AM.mp4', import.meta.url).href
-const vid10 = new URL('../assets/videos/WhatsApp Video 2026-02-01 at 11.28.49 AM.mp4', import.meta.url).href
-const logoPoster = new URL('../assets/pictures/Logo.png', import.meta.url).href
+// Video assets from public folder
+const vid1 = '/videos/WhatsApp Video 2026-02-01 at 11.28.40 AM.mp4'
+const vid2 = '/videos/WhatsApp Video 2026-02-01 at 11.28.41 AM.mp4'
+const vid3 = '/videos/WhatsApp Video 2026-02-01 at 11.28.42 AM.mp4'
+const vid4 = '/videos/WhatsApp Video 2026-02-01 at 11.28.43 AM.mp4'
+const vid5 = '/videos/WhatsApp Video 2026-02-01 at 11.28.44 AM.mp4'
+const vid6 = '/videos/WhatsApp Video 2026-02-01 at 11.28.45 AM.mp4'
+const vid7 = '/videos/WhatsApp Video 2026-02-01 at 11.28.46 AM.mp4'
+const vid8 = '/videos/WhatsApp Video 2026-02-01 at 11.28.47 AM.mp4'
+const vid9 = '/videos/WhatsApp Video 2026-02-01 at 11.28.48 AM.mp4'
+const vid10 = '/videos/WhatsApp Video 2026-02-01 at 11.28.49 AM.mp4'
 
 const cart = ref([])
 const searchQuery = ref('')
