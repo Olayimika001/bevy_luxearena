@@ -361,6 +361,66 @@ const products = ref([
     reviews: 25,
     discount: 0
   },
+  {
+    id: 23,
+    name: "Bag with straps",
+    price: 235000,
+    image: "/bag with straps.jpeg",
+    category: "Handbags",
+    description: "Sophisticated evening bag perfect for formal occasions and special events.",
+    color: "Black",
+    material: "Satin with leather trim",
+    dimensions: "10 x 8 x 4 inches",
+    inStock: true,
+    rating: 4.9,
+    reviews: 34,
+    discount: 0
+  },
+  {
+    id: 24,
+    name: "Black leather bag",
+    price: 23000,
+    image: "/black leather bag.jpeg",
+    category: "Handbags",
+    description: "Spacious duffel bag ideal for weekend trips and short vacations.",
+    color: "Charcoal Grey",
+    material: "Canvas with leather handles",
+    dimensions: "20 x 12 x 8 inches",
+    inStock: true,
+    rating: 4.7,
+    reviews: 29,
+    discount: 0
+  },
+  {
+    id: 25,
+    name: "Brown bag",
+    price: 16500,
+    image: "/brown bag.jpeg",
+    category: "Handbags",
+    description: "Retro-inspired shoulder bag with modern functionality and timeless appeal.",
+    color: "Rust",
+    material: "Vintage leather",
+    dimensions: "11 x 9 x 5 inches",
+    inStock: true,
+    rating: 4.6,
+    reviews: 21,
+    discount: 0
+  },
+  {
+    id: 26,
+    name: "Wine leather bag",
+    price: 18000,
+    image: "/wine leather bag.jpeg",
+    category: "Handbags",
+    description: "Premium briefcase designed for professionals with multiple compartments.",
+    color: "Deep Brown",
+    material: "Premium leather",
+    dimensions: "16 x 12 x 4 inches",
+    inStock: true,
+    rating: 4.8,
+    reviews: 38,
+    discount: 0
+  },
 ])
 
 const addToCart = (product) => {
@@ -418,8 +478,8 @@ const filteredProducts = computed(() => {
     filtered = filtered.filter(p => p.category === selectedCategory.value)
   }
 
-  // Filter by price range
-  filtered = filtered.filter(p => p.price >= priceRange.value[0] && p.price <= priceRange.value[1])
+  // Price range filtering removed so products above 20000 are shown
+  // (Keeping `priceRange` state in case the UI needs it later)
 
   // Sort products
   switch (selectedSort.value) {
