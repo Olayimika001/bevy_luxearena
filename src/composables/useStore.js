@@ -318,7 +318,7 @@ const products = ref([
   },
   {
     id: 20,
-    name: "blue",
+    name: "Blue leather bag",
     price: 16500,
     image: "/blue.jpeg",
     category: "Handbags",
@@ -333,7 +333,7 @@ const products = ref([
   },
   {
     id: 21,
-    name: "group",
+    name: "Brown bag",
     price: 16000,
     image: "/brown.jpeg",
     category: "Handbags",
@@ -348,7 +348,7 @@ const products = ref([
   },
   {
     id: 22,
-    name: "brown",
+    name: "Handbags",
     price: 18000,
     image: "/group.jpeg",
     category: "Handbags",
@@ -364,7 +364,7 @@ const products = ref([
   {
     id: 23,
     name: "Bag with straps",
-    price: 235000,
+    price: 23500,
     image: "/bag with straps.jpeg",
     category: "Handbags",
     description: "Sophisticated evening bag perfect for formal occasions and special events.",
