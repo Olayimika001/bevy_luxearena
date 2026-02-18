@@ -376,21 +376,21 @@ const products = ref([
     reviews: 34,
     discount: 0
   },
-  {
-    id: 24,
-    name: "Black leather bag",
-    price: 23000,
-    image: "/black leather bag.jpeg",
-    category: "Handbags",
-    description: "Spacious duffel bag ideal for weekend trips and short vacations.",
-    color: "Charcoal Grey",
-    material: "Canvas with leather handles",
-    dimensions: "20 x 12 x 8 inches",
-    inStock: true,
-    rating: 4.7,
-    reviews: 29,
-    discount: 0
-  },
+  // {
+  //   id: 24,
+  //   name: "Black leather bag",
+  //   price: 23000,
+  //   image: "/black leather bag.jpeg",
+  //   category: "Handbags",
+  //   description: "Spacious duffel bag ideal for weekend trips and short vacations.",
+  //   color: "Charcoal Grey",
+  //   material: "Canvas with leather handles",
+  //   dimensions: "20 x 12 x 8 inches",
+  //   inStock: true,
+  //   rating: 4.7,
+  //   reviews: 29,
+  //   discount: 0
+  // },
   {
     id: 25,
     name: "Brown bag",
